@@ -3,5 +3,5 @@
 <code>[p]repo add MaazCogs https://github.com/Maaz-01/MK-V3Cogs</code>
 <h4>type <code>I agree</code></h4>
 <code>[p]cog install MaazCogs [cog_name]</code> 
-<h4>Example : <code>[p]cog install coronavirus-stats</code></h4>
+<h4>Example : <code>[p]cog install MaazCogs coronavirus-stats</code></h4>
 <h5>[p] is your prefix</h5>

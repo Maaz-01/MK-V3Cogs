@@ -6,5 +6,5 @@
     "install_msg": "Installed coronavirus-stats cog!",
     "short": "Get realtime coronavirus stats",
     "tags" : ["Covid-19", "Coronavirus", "Sars-Cov2", "stats"],
-    "requirements" : ["matplotlib", "dateutil"]
+    "requirements" : ["matplotlib", "python-dateutil"]
   }
