@@ -1,0 +1,10 @@
+{
+    "author" : ["Maaz(Maaz#7752)"],
+    "bot_version": [3,0,0],
+    "description": "Get global stats and country stats",
+    "hidden": false,
+    "install_msg": "Installed coronavirus-stats cog!",
+    "short": "Get realtime coronavirus stats",
+    "tags" : ["Covid-19", "Coronavirus", "Sars-Cov2", "stats"],
+    "requirements" : ["matplotlib", "dateutil"]
+  }
