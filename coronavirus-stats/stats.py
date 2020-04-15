@@ -58,7 +58,7 @@ class CoronavirusStats(commands.Cog):
 
 
     @commands.command()
-    async def globalstats(self, ctx, date : str = None):
+    async def globalstats(self, ctx, *, date : str = None):
         """
         Command to check global Coronavirus stats
         date : it can be almost any kind of date format for the required date
@@ -94,7 +94,7 @@ class CoronavirusStats(commands.Cog):
 
 
     @commands.command()
-    async def countrystats(self, ctx, country : str = None):
+    async def countrystats(self, ctx, *, country : str = None):
         """
         Command to check country Coronavirus stats
         country : it can be the country name or country code
