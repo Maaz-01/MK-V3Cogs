@@ -1,0 +1,10 @@
+{
+    "author" : ["Maaz(Maaz#7752)"],
+    "bot_version": [3,0,0],
+    "description": "Get a stats for the messages in chat to check for toxicity levels using Google Perspective API",
+    "hidden": false,
+    "install_msg": "Installed message-analyzer cog!",
+    "short": "Check those message!",
+    "tags" : ["message-analyzer", "google", "perspective", "stats"],
+    "requirements" : []
+  }
