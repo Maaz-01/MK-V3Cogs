@@ -109,7 +109,7 @@ class CustomCooldown(commands.Cog):
         Cooldown a category
         """
         cooldown_time = time_parser(time)
-        if not cooldown_time:
+        if cooldown_time is None:
             return await ctx.send("Please enter a valid time.")
         cooldown_categories = await self.config.guild(ctx.guild).cooldown_categories()
         if str(category.id) in cooldown_categories:
@@ -144,7 +144,7 @@ class CustomCooldown(commands.Cog):
         Cooldown a channel
         """
         cooldown_time = time_parser(time)
-        if not cooldown_time:
+        if cooldown_timeis None:
             return await ctx.send("Please enter a valid time.")
         cooldown_channels = await self.config.guild(ctx.guild).cooldown_channels()
         if str(channel.id) in cooldown_channels:
