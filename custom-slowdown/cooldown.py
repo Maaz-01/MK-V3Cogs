@@ -102,6 +102,15 @@ class CustomCooldown(commands.Cog):
         """
         pass
 
+    @snail.command()
+    @commands.is_owner()
+    async def reset(self, ctx):
+        """
+        Resets all guild data.
+        """
+        await self.config.clear_all_guilds()
+        await ctx.send("Guild data reset.")
+
 
     @snail.command()
     async def category(self, ctx, category : discord.CategoryChannel, time : str):
@@ -122,11 +131,13 @@ class CustomCooldown(commands.Cog):
             if pred.result is True:
                 if cooldown_time == 0:
                     del cooldown_categories[str(category.id)]
+                    await self.config.guild(ctx.guild).cooldown_categories.set(cooldown_categories)
                     return await ctx.send(f"The cooldown for {category.name} has been removed.")
                 else:
                     category_data = cooldown_categories[str(category.id)]
                     category_data["channels"] = [channel.id for channel in category.channels]
                     category_data["cooldown_time"] = cooldown_time
+                    category_data["users_on_cooldown"] = {}
                 cooldown_categories[str(category.id)] = category_data
                 await self.config.guild(ctx.guild).cooldown_categories.set(cooldown_categories)
                 await ctx.send(f"{category.name}'s channels are now set at 1 message every {time}")
@@ -144,7 +155,7 @@ class CustomCooldown(commands.Cog):
         Cooldown a channel
         """
         cooldown_time = time_parser(time)
-        if cooldown_timeis None:
+        if cooldown_time is None:
             return await ctx.send("Please enter a valid time.")
         cooldown_channels = await self.config.guild(ctx.guild).cooldown_channels()
         if str(channel.id) in cooldown_channels:
@@ -157,9 +168,10 @@ class CustomCooldown(commands.Cog):
             if pred.result is True:
                 if cooldown_time == 0:
                     del cooldown_channels[str(channel.id)]
+                    await self.config.guild(ctx.guild).cooldown_channels.set(cooldown_channels)
                     return await ctx.send(f"The cooldown for {channel.mention} has been removed.")
                 else:
-                    cooldown_channels[str(channel.id)] = {"cooldown_time" : cooldown_time}
+                    cooldown_channels[str(channel.id)] = {"cooldown_time" : cooldown_time, "users_on_cooldown" : {}}
                 await self.config.guild(ctx.guild).cooldown_channels.set(cooldown_channels)
                 await ctx.send(f"{channel.mention} is now set at 1 message every {time}")
             else:
