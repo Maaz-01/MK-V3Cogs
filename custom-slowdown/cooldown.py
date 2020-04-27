@@ -1,4 +1,3 @@
-#AIzaSyAUBRU8lkM1hTTlw2smkXh_woWXEJ68Iag
 import discord
 from redbot.core import commands, Config, checks
 import redbot.core.utils.chat_formatting as chat_formatter
