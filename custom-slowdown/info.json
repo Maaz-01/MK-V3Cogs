@@ -1,0 +1,10 @@
+{
+    "author" : ["Maaz(Maaz#7752)"],
+    "bot_version": [3,0,0],
+    "description": "Custom slowdown for channels",
+    "hidden": false,
+    "install_msg": "Installed custom-slowdown cog!",
+    "short": "No spam please",
+    "tags" : ["anti-spam", "spam", "cooldown"],
+    "requirements" : ["pytimeparse"]
+  }
